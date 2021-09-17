@@ -4,13 +4,13 @@ const connectDB = require('./config/db');
 const productRoutes = require('./routes/productRoutes');
 const cors = require("cors");
 const nodemailer = require("nodemailer");
-const Stripe = require('stripe');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 connectDB();
 
 const app = express();
 const contact = express();
-const stripe = express();
+const stripeApp = express();
 
 
 // middleware
@@ -18,8 +18,9 @@ app.use(express.json());
 app.use(cors());
 app.use("/api/products", productRoutes);
 
-stripe.use(express.json());
-stripe.use(cors({ origin: "http://localhost:3000" }));
+
+stripeApp.use(express.json());
+stripeApp.use(cors({ origin: "http://localhost:3000" }));
 
 contact.use(express.json());
 contact.use(cors())
@@ -30,29 +31,48 @@ const STRIPE_PORT = process.env.STRIPE_PORT || 3003;
 const CONTACT_PORT = process.env.CONTACT_PORT || 3002;
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-stripe.listen(STRIPE_PORT, () => console.log(`Stripe running on port ${STRIPE_PORT}`));
 contact.listen(CONTACT_PORT, () => console.log(`Contact running on port ${CONTACT_PORT}`));
 
 
-// Stripe payments 
-const stripeKey = new Stripe(process.env.STRIPE_SECRET_KEY)
-stripe.post("/api/checkout", async (req, res) => {
+
+
+// Stripe payment
+  
+stripeApp.listen(STRIPE_PORT, () => console.log(`Stripe running on port ${STRIPE_PORT}`));
+
+stripeApp.post("/api/checkout", async (req, res) => {
     console.log(req.body);
-    const { id, amount } = req.body;
+    const { id, amount, shipping } = req.body;
     try {
-        const pay = await stripeKey.paymentIntents.create({
+        const pay = await stripe.paymentIntents.create({
             amount,
-            currency: "USD",
-            description: "Pinturitas compradas",
+            currency: "MXN",
+            description: "Omar Villatoro Paint's",
             payment_method: id,
+            receipt_email: shipping.email,
+            shipping: {
+                name: `${shipping.firstName} ${shipping.lastName}`,
+                phone: shipping.number,
+                address: {
+                  line1: shipping.address1,
+                  line2: shipping.address2,
+                  city: shipping.city,
+                  postal_code: shipping.postaCode,
+                  state: shipping.state,
+                  country: shipping.country,
+                },
+            },
             confirm: true,
-        })
+        });
         console.log(pay);
-        return res.status(200).json({ message: "Succesful payment" })
+        return res.status(200).json({ message: "Succesful Payment" })
+
     } catch (error) {
-        return res.json({message: error.raw.message});
+        return res.json({ message: error.raw.message });
     }
-})
+  });
+
+
 
 
 // NODEMAILER

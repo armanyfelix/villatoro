@@ -27,7 +27,6 @@ const INITIAL_STATE = {
          cartItems: cartItemsInLocalStorage,
      },
  };
-
 const store = createStore(
     reducers,
     INITIAL_STATE,

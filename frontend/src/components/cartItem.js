@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom';
 const CartItem = ({ item, qtyChangeHandler, removeHandler }) => {
 
     return (
-        <div className="m-1 border-2 rounded-md text-sm sm:text-base">
-            <div className=" p-1 xl:gap-36 grid grid-cols-5 rounded-md bg-gray-300 place-items-center ">
+        <div className=" border-white border bg-gray-200  text-xs sm:text-sm md:text-base">
+            <div className=" p-1 xl:gap-36 grid grid-cols-5 place-items-center ">
                 <div className="p-1">
-                    <img src={item.imageUrl} alt={item.name} />
+                    <img src={item.imageUrl} alt={item.name} className="" />
                 </div>
                 <Link to={`/product/${item.product}`} className=" no-underline hover:text-white   ">
                     <p>{item.name}</p>
                 </Link>
                 <p>${item.price}</p>
-                <div className="border-black">
-                    <select
+                <div>
+                    <select className="rounded"
                         value={item.qty}
                         onChange={(e) => qtyChangeHandler(item.product, e.target.value)}
                     >
@@ -25,7 +25,7 @@ const CartItem = ({ item, qtyChangeHandler, removeHandler }) => {
                     </select>
                 </div>
 
-                <button className="sm:p-2 p-1 text-red-600 rounded-sm bg-gray-200 border-black 
+                <button className="sm:p-2 p-1 text-red-600 rounded-sm bg-gray-400 border-black 
                         cursor-pointer ease-out transition-all hover:bg-gray-700 focus:scale-110 
                         hover:scale-110 transform"
                     onClick={() => removeHandler(item.product)}>

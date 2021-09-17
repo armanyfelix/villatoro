@@ -21,15 +21,17 @@ function Shop() {
         <div className="bg-gray-300">
             <div className="flex justify-between bg-white">
                 <p className="text-lg p-4 font-mate text-gray-700font-bold text-">If you are interested in purchasing an NFT visit <a href="https://opensea.io/" className="text-blue-900 hover:text-gray-300">OpenSea </a>for more information</p>
-                <div className="flex  lg:mr-20 items-center ">
+                <div className="flex lg:mr-20 items-center ">
                     <Link to="/cart" className=" hover:bg-gray-500 rounded-sm p-2 flex  ">
-                        <i className="fas fa-shopping-cart mt-1"> </i>
-                        <span className=" items-center ml-2 mr-2">
+                        {/* <span className="items">
                             Cart
+                        </span> */}
+                        <i className="fas fa-shopping-cart m-1"> </i>
+                        <span className="bg-gray-800 text-white w-6 h-6 item text-sm rounded-full 
+                          flex justify-center items-center cursor-pointer">
+                            {getCartCount()}
                         </span>
-                        <span className="bg-gray-900 text-white w-5 h-5 text-sm rounded-full 
-                        align-top flex justify-center items-center mt-1 cursor-pointer">
-                            {getCartCount()}</span>
+
                     </Link>
                 </div>
             </div>

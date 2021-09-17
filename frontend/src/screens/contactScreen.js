@@ -26,7 +26,7 @@ function Contact() {
         };
 
     return (
-        <section id="contact" className=" flex  justify-center py-24 flex-wrap mx-auto bg-gray-500 ">
+        <section id="contact" className="flex justify-center py-36 flex-wrap mx-auto bg-gray-500 ">
             <form className="mt-3 flex-wrap mx-auto" onSubmit={handleSubmit}>
                 <div className="form-group row">
                     <div className=" mt-3 ">

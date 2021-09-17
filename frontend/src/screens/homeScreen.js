@@ -7,7 +7,7 @@ function Home() {
     return (
         <section className="bg-gray-800">
             <Carousel className=" mx-auto justify-center items-center" />
-            <section className="w-full  text-center bg-gray-400 mt-20 p-28">
+            <section className="w-full  text-center bg-gray-400 mt-20 lg:p-28 md:p-16 p-4">
                 <div>
                     <div>
                     If you want a physical copy of the author's works

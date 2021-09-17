@@ -8,9 +8,7 @@ export const cartReducer = (state = CART_INITIAL_STATE, action) => {
   switch (action.type) {
     case actionTypes.ADD_TO_CART:
       const item = action.payload;
-
       const existItem = state.cartItems.find((x) => x.product === item.product);
-
       if (existItem) {
         return {
           ...state,
@@ -29,6 +27,11 @@ export const cartReducer = (state = CART_INITIAL_STATE, action) => {
         ...state,
         cartItems: state.cartItems.filter((x) => x.product !== action.payload),
       };
+    case actionTypes.CART_RESET: 
+      return {
+        ...state,
+        cartItems: [],
+      }
     default:
       return state;
   }

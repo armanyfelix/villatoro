@@ -19,7 +19,7 @@ function CartScreen() {
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id));
   };
- const getCartCount = () => {
+  const getCartCount = () => {
     return cartItems.reduce((qty, item) => Number(item.qty) + qty, 0);
   };
   const getCartSubTotal = () => {
@@ -29,7 +29,7 @@ function CartScreen() {
   };
   return (
     <>
-      <div className="md:flex justify-center mx-auto w-full ">
+      <div className="md:flex justify-cente mx-auto w-full ">
         <div className="sm:m-8  ">
           <h2 className="text-3xl mb-8 font-bold italic">Shopping Cart</h2>
           {cartItems.length === 0 ? (
@@ -47,18 +47,17 @@ function CartScreen() {
             ))
           )}
         </div>
-        <div className=" m-8  text-center mb-64">
-          <div className="border-4  px-20">
+        <div className=" md:m-8  text-center mb-64">
+          <div className="border-2 border-gray-400 rounded-t  px-20">
             <p className="p-4">Subtotal ({getCartCount()}) items:</p>
             <p className="font-bold mb-4 ">${getCartSubTotal()}</p>
           </div>
-          <div className="border-4 border-t-0">
-            <button className="bg-gray-600 p-2 m-8 rounded text-white hover:bg-gray-800">
+          <div className="border-2 border-gray-400 rounded-b border-t-0">
+            <button type="submit" className="bg-gray-600 p-2 m-8 rounded text-white hover:bg-gray-800">
               <Link to="/Checkout">
                 Proceed to Checkout
               </Link>
             </button>
-
           </div>
         </div>
       </div>

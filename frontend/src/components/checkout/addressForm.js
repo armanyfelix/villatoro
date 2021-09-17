@@ -17,8 +17,11 @@ function AddressForm({ handleNext }) {
         Shipping address
       </Typography>
       <FormProvider {...methods}>
-        <form onSubmit={methods.handleSubmit(Data => {
-          dispatch(setShipping(Data));
+        <form onSubmit={methods.handleSubmit(data => {
+          dispatch(setShipping(data));
+          // axios.post("http://localhost:3003/api/checkout", {
+          //   address: data,
+          // });
           handleNext();
         })}>
           <Grid container spacing={3}>

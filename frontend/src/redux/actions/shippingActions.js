@@ -1,7 +1,10 @@
+// import axios from 'axios';
 import * as actionTypes from '../constants/shippingConstants';
 
 export const setShipping = (data) => (dispatch) => {
     try {
+ //const { data } = axios.post('api/customer');
+        
         dispatch({
             type: actionTypes.SET_SHIPPING,
             payload: data,

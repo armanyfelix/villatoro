@@ -2,12 +2,12 @@ import { Link } from 'react-router-dom';
 
 const Product = ({ imageUrl, name, price,  productId }) => {
     return (
-        <div className="product p-10 flex flex-col justify-between">
+        <div className="product p-3 flex flex-col">
             <Link to={`/product/${productId}`} 
-                className="bg-white hover:shadow-xl transform hover:scale-110 cursor-pointer ease-out transition-all  hover:bg-gray-100 p-4  lg:w-76">
+                className="bg-white hover:shadow-xl rounded transform delay-200 hover:scale-110 cursor-pointer ease-out transition-all  hover:bg-gray-100 p-4">
                 <div>
                     <img src={imageUrl} 
-                         className="bg-cover bg-center w-full object-cover h-80 bg-gray-300" 
+                         className="w-full object-cover md:h-96 h-72 bg-gray-300" 
                          alt={name}
                     />
                 </div>
