@@ -24,7 +24,7 @@ function Carousel() {
         dispatch(listProducts());
     }, [dispatch]);
     return (
-        <div className="lg:px-20 overflow-hidden">
+        <div className="lg:px-20  overflow-hidden">
             <Slider {...settings}>
                 {loading ? (<div className="spinner">
                     <div className="cube1"></div>
@@ -32,10 +32,10 @@ function Carousel() {
                 </div>)
                     : error ? (<h2>{error}</h2>) : (
                         products.map((product) => (
-                            <>
-                                <img src={product.imageUrl} alt={product.name} className="mx-auto" />
+                            <div key={product._id}>
+                                <img src={product.imageUrl} alt={product.name} className="mx-auto max-h-screen py-5 w-auto" />
                                 <p className="text-center mb-10 text-gray-200 text-xl mt-3 font-mate">{product.name}</p>
-                            </>
+                            </div>
                         ))
                     )}
             </Slider>

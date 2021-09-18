@@ -20,7 +20,7 @@ app.use("/api/products", productRoutes);
 
 
 stripeApp.use(express.json());
-stripeApp.use(cors({ origin: "http://localhost:3000" }));
+stripeApp.use(cors());
 
 contact.use(express.json());
 contact.use(cors())
@@ -31,6 +31,7 @@ const STRIPE_PORT = process.env.STRIPE_PORT || 3003;
 const CONTACT_PORT = process.env.CONTACT_PORT || 3002;
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+stripeApp.listen(STRIPE_PORT, () => console.log(`Stripe running on port ${STRIPE_PORT}`));
 contact.listen(CONTACT_PORT, () => console.log(`Contact running on port ${CONTACT_PORT}`));
 
 
@@ -38,7 +39,6 @@ contact.listen(CONTACT_PORT, () => console.log(`Contact running on port ${CONTAC
 
 // Stripe payment
   
-stripeApp.listen(STRIPE_PORT, () => console.log(`Stripe running on port ${STRIPE_PORT}`));
 
 stripeApp.post("/api/checkout", async (req, res) => {
     console.log(req.body);

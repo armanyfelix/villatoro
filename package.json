@@ -2,7 +2,7 @@
   "name": "villatoro",
   "version": "1.0.0",
   "main": "server.js",
-  "description": "",
+  "description": "Web and store for the artist Omar Villatoro",
   "author": "Armany Felix",
   "license": "MIT",
   "scripts": {

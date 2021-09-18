@@ -5,11 +5,11 @@ import '../../App.css';
 function Navbar({ click }) {
 
     return (
-        <nav className="flex w-full  text-white shadow-lg bg-gray-700 bg-teal-500 p-4">
+        <nav className="flex w-full  text-white shadow-lg bg-gray-800 p-4">
             <div className="flex w-full text-white mr-6">
-                <a href="/" className=" lg:ml-20 sm:text-2xl text-lg font-mate uppercase ">Omar Villatoro</a>
+                <a href="/" className=" lg:ml-20 sm:text-2xl text-lg font-mate  uppercase ">Omar Villatoro</a>
             </div>
-            <div className="links flex justify-end w-full text-lg font-mate italic mr-6  text-gray-300">
+            <div className="links flex justify-end w-full antialiased text-xl font-mate mr-6 text-gray-300">
                 <Link to="/" className="inline-block text-teal-200 hover:text-white  mr-4">
                     Home
                 </Link>

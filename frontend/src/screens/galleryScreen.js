@@ -34,7 +34,7 @@ function TabPanel(props) {
         >
             {value === index && (
                 <Box sx={{ p: 3 }}>
-                    <Typography>{children}</Typography>
+                    <Typography component={'span'}>{children}</Typography>
                 </Box>
             )}
         </div>
@@ -85,11 +85,11 @@ function Gallery() {
                         : error ? (<h2>{error}</h2>) : (
                             products.map((product) => (
                                 product.group === 'Humans' ? (
-                                    <>
-                                        <img src={product.imageUrl} alt={product.name} className="mx-auto md:p-5 p-1 max-h-screen" />
-                                        <p className="text-center mb-10 text-gray-200 text-xl ">{product.name}</p>
+                                    <div key={product._id}>
+                                        <img src={product.imageUrl} alt={product.name} className="mx-auto md:p-5 max-h-screen" />
+                                        <span className="text-center mb-10 text-gray-200 text-xl">{product.name}</span>
                                         <Divider/>
-                                    </>
+                                    </div>
                                 ) : (null)
                             ))
                         )}
@@ -102,11 +102,11 @@ function Gallery() {
                         : error ? (<h2>{error}</h2>) : (
                             products.map((product) => (
                                 product.group === 'Animals' ? (
-                                    <>
-                                        <img src={product.imageUrl} alt={product.name} className="mx-auto md:p-5 p-1 max-h-screen" />
-                                        <p className="text-center mb-10 text-gray-200 text-xl">{product.name}</p>
+                                    <div key={product._id}>
+                                        <img src={product.imageUrl} alt={product.name} className="mx-auto md:p-5 max-h-screen" />
+                                        <span className="text-center mb-10 text-gray-200 text-xl">{product.name}</span>
                                         <Divider/>
-                                    </>
+                                    </div>
                                 ) : (null)
                             ))
                         )}
@@ -119,11 +119,11 @@ function Gallery() {
                         : error ? (<h2>{error}</h2>) : (
                             products.map((product) => (
                                 product.group === 'GTA' ? (
-                                    <>
-                                        <img src={product.imageUrl} alt={product.name} className="mx-auto md:p-5 p-1 max-h-screen" />
-                                        <p className="text-center mb-10 text-gray-200 text-xl">{product.name}</p>
+                                    <div key={product._id}>
+                                        <img src={product.imageUrl} alt={product.name} className="mx-auto md:p-5 max-h-screen" />
+                                        <span className="text-center mb-10 text-gray-200 text-xl">{product.name}</span>
                                         <Divider/>
-                                    </>
+                                    </div>
                                 ) : (null)
                             ))
                         )}

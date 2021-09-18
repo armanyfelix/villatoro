@@ -11,7 +11,7 @@ function Drawer({show, click}) {
 
     return (
         <div className={drawerClass.join(" ")} >
-            <ul className="flex flex-col mt-20 list-none items-center justify-center font-mate text-2xl p-8 text-gray-400" 
+            <ul className="flex flex-col mt-20 list-none items-center justify-center font-mate text-2xl p-8 text-gray-200" 
                 onClick={click}>
                 <li className="mb-5">
                     <Link to="/" >
