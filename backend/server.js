@@ -38,8 +38,6 @@ contact.listen(CONTACT_PORT, () => console.log(`Contact running on port ${CONTAC
 
 
 // Stripe payment
-  
-
 stripeApp.post("/api/checkout", async (req, res) => {
     console.log(req.body);
     const { id, amount, shipping } = req.body;
