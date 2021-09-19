@@ -39,7 +39,7 @@ contact.listen(CONTACT_PORT, () => console.log(`Contact running on port ${CONTAC
 
 // Stripe payment
 stripeApp.post("/api/checkout", async (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
     const { id, amount, shipping } = req.body;
     try {
         const pay = await stripe.paymentIntents.create({
@@ -62,7 +62,7 @@ stripeApp.post("/api/checkout", async (req, res) => {
             },
             confirm: true,
         });
-        console.log(pay);
+        // console.log(pay);
         return res.status(200).json({ message: "Succesful Payment" })
 
     } catch (error) {
