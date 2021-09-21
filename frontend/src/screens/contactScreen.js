@@ -17,7 +17,7 @@ function Contact() {
         const response = await fetch("https://omar-villatoro.herokuapp.com/contact", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json;charset=utf-8",
+                "Content-Type": "application/json",
             },
             body: JSON.stringify(details),
         });
@@ -27,7 +27,7 @@ function Contact() {
     };
 
     return (
-        <section id="contact" className="justify-center text-center py-14 mx-auto bg-gray-600">
+        <section id="contact" className="justify-center text-white text-center py-14 mx-auto bg-gray-600">
             <Typography variant="h2">Contact</Typography>
             <div className="flex flex-wrap py-16">
             <form className="mt-3 flex-wrap mx-auto bg-gray-400 w-96 p-4 rounded-lg" onSubmit={handleSubmit}>

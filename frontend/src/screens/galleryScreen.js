@@ -79,7 +79,7 @@ function Gallery() {
                     </ThemeProvider>
                 </Box>
                 <TabPanel value={value} index={0}>
-                    {loading ? (<div className="spinner">
+                    {loading ? (<div className="spinner mx-auto">
                         <div className="cube1"></div>
                         <div className="cube2"></div>
                     </div>)
@@ -87,7 +87,7 @@ function Gallery() {
                             products.map((product) => (
                                 product.group === 'Humans' ? (
                                     <div key={product._id} className="mb-10">
-                                        <LazyLoadImage src={product.imageUrl} threshold={100} alt={product.name} className="mx-auto w-auto md:p-5 max-h-screen" />
+                                        <LazyLoadImage src={product.imageUrl} threshold="100" alt={product.name} className="mx-auto w-auto md:p-5 max-h-screen" />
                                         <span className="text-center justify-center flex text-gray-200 text-xl">{product.name}</span>
                                         <Divider/>
                                     </div>
@@ -96,7 +96,7 @@ function Gallery() {
                         )}
                 </TabPanel>
                 <TabPanel value={value} index={1}>
-                    {loading ? (<div className="spinner">
+                    {loading ? (<div className="spinner mx-auto">
                         <div className="cube1"></div>
                         <div className="cube2"></div>
                     </div>)
@@ -113,7 +113,7 @@ function Gallery() {
                         )}
                 </TabPanel>
                 <TabPanel value={value} index={2}>
-                    {loading ? (<div className="spinner">
+                    {loading ? (<div className="spinner mx-auto">
                         <div className="cube1"></div>
                         <div className="cube2"></div>
                     </div>)
@@ -121,7 +121,7 @@ function Gallery() {
                             products.map((product) => (
                                 product.group === 'GTA' ? (
                                     <div key={product._id} className="mb-10">
-                                        <LazyLoadImage src={product.imageUrl} alt={product.name} className="mx-auto md:p-5 max-h-screen" />
+                                        <LazyLoadImage src={product.imageUrl} alt={product.name} threshold="100" className="mx-auto md:p-5 max-h-screen" />
                                         <span className="text-center justify-center flex text-gray-200 text-xl">{product.name}</span>
                                         <Divider/>
                                     </div>

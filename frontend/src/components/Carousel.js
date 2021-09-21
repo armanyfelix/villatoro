@@ -34,7 +34,7 @@ function Carousel() {
                     : error ? (<h2>{error}</h2>) : (
                         products.map((product) => (
                             <div key={product._id}>
-                                <LazyLoadImage src={product.imageUrl} alt={product.name} threshold="100"   className="mx-auto w-auto max-h-screen  py-5" />
+                                <LazyLoadImage src={product.imageUrl} alt={product.name} threshold="100" className="mx-auto w-auto max-h-screen  py-5" />
                                 <p className="text-center mb-10 text-gray-200 text-xl mt-3 font-mate">{product.name}</p>
                             </div>
                         ))

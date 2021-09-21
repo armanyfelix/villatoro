@@ -28,7 +28,7 @@ function ProductScreen({ match, history }) {
             </div>)
                 : error ? (<h2>{error}</h2>) : (
                     <>
-                        <div className="productscreen__left flex ">
+                        <div className="productscreen__left flex h-60 ">
                             <div className="left__image flex justify-center">
                                 <img src={product.imageUrl} alt={product.name} className="md:w-96 lg:max-w-2xl rounded" />
                             </div>
@@ -51,16 +51,16 @@ function ProductScreen({ match, history }) {
                                         <option value="100x200">100x200</option>
                                 </select> */}
                                 </div>
-                                <div className=" w-20 flex mx-auto shadow p-2 focus-within:ring-2 ring-gray-700 bg-white rounded-md ">
+                                <d className=" w-20 flex mx-auto shadow p-1 cursor-pointer focus-within:ring-2 ring-gray-700 bg-white rounded-md ">
                                     <span className="mr-1">Qty</span>
-                                    <select className="border-none " value={qty} onChange={(e) => setQty(e.target.value)}>
+                                    <select className="border-none mr-1 " value={qty} onChange={(e) => setQty(e.target.value)}>
                                         {[...Array(product.countInStock).keys()].map((x) => (
                                             <option key={x + 1} value={x + 1}>
                                                 {x + 1}
                                             </option>
                                         ))}
                                     </select>
-                                </div>
+                                </d>
                                 <p>
                                     <button type="button" className="bg-gray-600 p-2 px-5 shadow rounded hover:bg-gray-700 text-white focus:ring-2 ring-gray-900" onClick={addToCartHandler}>
                                     <i className="fas fa-shopping-cart mt-1 text-white"> </i> Add To Cart
