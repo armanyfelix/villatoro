@@ -37,7 +37,7 @@ function ProductScreen({ match, history }) {
                                 <p><span className="font-semibold"> Description: </span> {product.description} </p>
                             </div>
                         </div>
-                        <div className="productscreen__right justify-center flex h-56">
+                        <div className="productscreen__right justify-center flex ">
                             <div className="right-info text-center p-4 space-y-5 w-56 bg-gray-200 rounded font-bold ">
                                 <p>
                                     ${product.price}

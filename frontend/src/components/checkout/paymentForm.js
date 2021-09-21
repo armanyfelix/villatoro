@@ -63,7 +63,7 @@ const CheckoutForm = ({ handleNext, handleBack }) => {
     if (!error) {
       const { id } = paymentMethod;
       try {
-        const { data } = await axios.post("https://omar-villatoro.herokuapp.com/api/checkout", {
+        const { data } = await axios.post("https://omar-villatoro.herokuapp.com/checkout", {
           id,
           amount: getCartSubTotal() * 100,
           shipping,

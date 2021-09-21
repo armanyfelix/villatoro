@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 const Product = ({ imageUrl, name, price,  productId }) => {
     return (
@@ -6,7 +7,7 @@ const Product = ({ imageUrl, name, price,  productId }) => {
             <Link to={`/product/${productId}`} 
                 className="bg-white hover:shadow-xl rounded transform delay-200 hover:scale-110 cursor-pointer ease-out transition-all  hover:bg-gray-100 p-4">
                 <div>
-                    <img src={imageUrl} 
+                    <LazyLoadImage src={imageUrl} 
                          className="w-full object-cover md:h-96 h-72 bg-gray-300" 
                          alt={name}
                     />

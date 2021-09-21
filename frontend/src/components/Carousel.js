@@ -3,6 +3,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts as listProducts } from '../redux/actions/productActions';
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { useEffect } from "react";
 
 function Carousel() {
@@ -33,7 +34,7 @@ function Carousel() {
                     : error ? (<h2>{error}</h2>) : (
                         products.map((product) => (
                             <div key={product._id}>
-                                <img src={product.imageUrl} alt={product.name} className="mx-auto max-h-screen py-5 w-auto" />
+                                <LazyLoadImage src={product.imageUrl} alt={product.name} threshold="100"   className="mx-auto w-auto max-h-screen  py-5" />
                                 <p className="text-center mb-10 text-gray-200 text-xl mt-3 font-mate">{product.name}</p>
                             </div>
                         ))

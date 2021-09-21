@@ -14,7 +14,7 @@ function Contact() {
             email: email.value,
             message: message.value,
         };
-        const response = await fetch("http://localhost:3002/contact", {
+        const response = await fetch("https://omar-villatoro.herokuapp.com/contact", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json;charset=utf-8",

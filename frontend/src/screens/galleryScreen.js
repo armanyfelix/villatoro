@@ -11,6 +11,7 @@ import deepPurple from '@material-ui/core/colors/deepPurple';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts as listProducts } from '../redux/actions/productActions';
 import { Divider } from '@material-ui/core';
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 const theme = createTheme({
     palette: {
@@ -85,9 +86,9 @@ function Gallery() {
                         : error ? (<h2>{error}</h2>) : (
                             products.map((product) => (
                                 product.group === 'Humans' ? (
-                                    <div key={product._id}>
-                                        <img src={product.imageUrl} alt={product.name} className="mx-auto md:p-5 max-h-screen" />
-                                        <span className="text-center mb-10 text-gray-200 text-xl">{product.name}</span>
+                                    <div key={product._id} className="mb-10">
+                                        <LazyLoadImage src={product.imageUrl} threshold={100} alt={product.name} className="mx-auto w-auto md:p-5 max-h-screen" />
+                                        <span className="text-center justify-center flex text-gray-200 text-xl">{product.name}</span>
                                         <Divider/>
                                     </div>
                                 ) : (null)
@@ -102,9 +103,9 @@ function Gallery() {
                         : error ? (<h2>{error}</h2>) : (
                             products.map((product) => (
                                 product.group === 'Animals' ? (
-                                    <div key={product._id}>
-                                        <img src={product.imageUrl} alt={product.name} className="mx-auto md:p-5 max-h-screen" />
-                                        <span className="text-center mb-10 text-gray-200 text-xl">{product.name}</span>
+                                    <div key={product._id} className="mb-10">
+                                        <LazyLoadImage src={product.imageUrl} alt={product.name} threshold="100" className="mx-auto md:p-5 max-h-screen" />
+                                        <span className="text-center justify-center flex text-gray-200 text-xl">{product.name}</span>
                                         <Divider/>
                                     </div>
                                 ) : (null)
@@ -119,9 +120,9 @@ function Gallery() {
                         : error ? (<h2>{error}</h2>) : (
                             products.map((product) => (
                                 product.group === 'GTA' ? (
-                                    <div key={product._id}>
-                                        <img src={product.imageUrl} alt={product.name} className="mx-auto md:p-5 max-h-screen" />
-                                        <span className="text-center mb-10 text-gray-200 text-xl">{product.name}</span>
+                                    <div key={product._id} className="mb-10">
+                                        <LazyLoadImage src={product.imageUrl} alt={product.name} className="mx-auto md:p-5 max-h-screen" />
+                                        <span className="text-center justify-center flex text-gray-200 text-xl">{product.name}</span>
                                         <Divider/>
                                     </div>
                                 ) : (null)
